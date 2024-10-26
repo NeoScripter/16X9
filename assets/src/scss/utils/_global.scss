@@ -1,0 +1,88 @@
+html, body {
+    overflow-x: hidden;
+    overflow-x: clip;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Regular';
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    max-width: $wrapper-width;
+    margin-inline: auto;
+}
+
+.image-loading.image-loaded > img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.image-loading > img {
+    opacity: 0;
+}
+
+.image-loading {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    animation: pulse 1.5s infinite;
+}
+
+.image-loading.image-loaded::before {
+    content: none;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(255,255,255,0);
+    }
+
+    50% {
+        background-color: rgba(255,255,255,0.15);
+    }
+
+    100% {
+        background-color: rgba(255,255,255,0);
+    }
+}
+
+section {
+    margin-bottom: rem(32px);
+
+    @include m1() {
+        margin-bottom: rem(24px);
+    }
+    @include m2() {
+        margin-bottom: rem(40px);
+    }
+    @include m3() {
+        margin-bottom: rem(48px);
+    }
+}
+
+.single-page {
+    margin-inline: auto;
+    max-width: max-content;
+
+    h1 {
+        margin-top: 2rem;
+    }
+
+    h2 {
+        margin-top: 0.75rem;
+    }
+
+    p {
+        max-width: 85ch;
+        margin-top: 0.3rem;
+    }
+}

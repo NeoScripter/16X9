@@ -1,0 +1,162 @@
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./assets/src/scss/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************/
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+*,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+canvas,
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: balance;
+}
+
+li {
+  list-style: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+p,
+li,
+figcaption {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Regular";
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  max-width: 117.44rem;
+  margin-inline: auto;
+}
+
+.image-loading.image-loaded > img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.image-loading > img {
+  opacity: 0;
+}
+
+.image-loading {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.image-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 1.5s infinite;
+}
+
+.image-loading.image-loaded::before {
+  content: none;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+section {
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 48rem) {
+  section {
+    margin-bottom: 1.5rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  section {
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (min-width: 90rem) {
+  section {
+    margin-bottom: 3rem;
+  }
+}
+
+.single-page {
+  margin-inline: auto;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
+.single-page h1 {
+  margin-top: 2rem;
+}
+.single-page h2 {
+  margin-top: 0.75rem;
+}
+.single-page p {
+  max-width: 85ch;
+  margin-top: 0.3rem;
+}

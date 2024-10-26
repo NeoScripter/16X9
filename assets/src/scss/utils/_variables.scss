@@ -1,0 +1,31 @@
+// Breakpoints
+$breakpoint768: rem(768px);
+$breakpoint1200: rem(1200px);
+$breakpoint1440: rem(1440px);
+
+
+// Sizes
+$wrapper-width: rem(1879px);
+
+
+// Colors
+$colors: (
+    "white": (
+        "neutral": #fff,
+    ),
+
+    "black": (
+        "dark": #000,
+        "neutral": #121212,
+        "light": #282728,
+    ),
+
+    "gray": (
+        "dark": #282728,
+        "neutral": #888888,
+    ),
+
+    "pink": (
+        "neutral": #CD2652,
+    ),
+);

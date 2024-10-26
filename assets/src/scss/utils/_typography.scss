@@ -1,0 +1,141 @@
+
+@mixin fs18() {
+    font-family: "Regular";
+    font-style: normal;
+    line-height: 140%;
+    font-size: rem(12px);
+
+    @include m2() {
+        font-size: rem(18px);
+    }
+
+    @include m3() {
+        font-size: rem(18px);
+    }
+}
+
+@mixin fs23() {
+    font-family: "Regular";
+    font-style: normal;
+    line-height: 130%;
+    font-size: rem(16px);
+
+    @include m2() {
+        font-size: rem(18px);
+    }
+
+    @include m3() {
+        font-size: rem(23px);
+    }
+}
+
+@mixin fs29($weight: 400) {
+    font-family: "Regular";
+    font-style: normal;
+    line-height: 120%;
+    font-size: rem(12px);
+
+    @if ($weight != 400) {
+        font-family: "Bold";
+    }
+
+    @include m2() {
+        font-size: rem(29px);
+    }
+
+    @include m3() {
+        font-size: rem(29px);
+    }
+}
+
+
+@mixin fs80() {
+    font-family: "ExtraBold";
+    font-style: normal;
+    line-height: 110%;
+    font-size: rem(29px);
+
+    @include m1() {
+        font-size: rem(50px);
+    }
+
+    @include m2() {
+        font-size: rem(80px);
+    }
+
+    @include m3() {
+        font-size: rem(80px);
+    }
+}
+
+@mixin fs110() {
+    font-family: "ExtraBold";
+    font-style: normal;
+    line-height: 110%; 
+    font-size: rem(29px);
+
+    @include m1() {
+        font-size: rem(50px);
+    }
+
+    @include m2() {
+        font-size: rem(80px);
+    }
+
+    @include m3() {
+        font-size: rem(110px);
+    }
+}
+
+@mixin fs182() {
+    font-family: "Bold";
+    font-style: normal;
+    line-height: 100%; 
+    font-size: rem(46px);
+
+    @include m1() {
+        font-size: rem(68px);
+    }
+
+    @include m2() {
+        font-size: rem(110px);
+    }
+
+    @include m3() {
+        font-size: rem(182px);
+    }
+}
+
+@mixin fs192() {
+    font-family: "Bold";
+    font-style: normal;
+    line-height: 110%; 
+    font-size: rem(35px);
+
+    @include m1() {
+        font-size: rem(80px);
+    }
+
+    @include m2() {
+        font-size: rem(120px);
+    }
+
+    @include m3() {
+        font-size: rem(192px);
+    }
+}
+
+@mixin fs200() {
+    font-family: "Black";
+    font-style: normal;
+    line-height: 110%;
+    font-size: rem(60px);
+
+    @include m2() {
+        font-size: rem(110px);
+    }
+
+    @include m3() {
+        font-size: rem(200px);
+    }
+}
