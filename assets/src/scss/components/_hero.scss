@@ -1,11 +1,11 @@
 .hero {
-    padding: rem(59px) 1rem rem(33px);
+    padding: rem(59px) 1rem 0;
 
     @include m1() {
-        padding: rem(59px) rem(37px) rem(42px);
+        padding: rem(59px) rem(37px) 0;
     }
     @include m2() {
-        padding: rem(98px) rem(37px) rem(42px);
+        padding: rem(98px) rem(37px) 0;
     }
 }
 

@@ -17,7 +17,7 @@
         if ($video): ?>
             <video
                 muted
-                
+
                 loop
                 poster="<?php echo get_template_directory_uri() . '/assets/images/global/hero-preview.webp'; ?>">
                 <source src="<?php echo esc_url($video); ?>" type="video/mp4">
@@ -27,9 +27,43 @@
 
     </div>
 
-    <style>
+</section>
 
-    </style>
+<section class="featured">
+
+    <div class="featured__kassette">
+        <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/kassette.png'; ?>" alt="pink kassette">
+    </div>
+
+    <div class="featured__wrapper">
+        <?php if (have_rows('featured_video')): while (have_rows('featured_video')): the_row(); ?>
+                <div class="featured__video">
+                    <video
+                        class="video-preview"
+                        muted
+                        loop
+                        poster="<?php echo get_sub_field('featured_thumbnail')['url']; ?>"
+                        data-high-quality="<?php echo get_sub_field('featured_video_file_high_quality')['url']; ?>">
+                        <source src="<?php echo get_sub_field('featured_video_file')['url']; ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+        <?php endwhile;
+        endif; ?>
+    </div>
+
+    <!-- Popup Structure -->
+    <div class="video-popup" id="video-popup">
+        <div class="video-popup__overlay"></div>
+        <div class="video-popup__content">
+            <button class="video-popup__close">&times;</button>
+            <video class="video-main" controls>
+                <source type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
 </section>
 
 <?php get_footer(); ?>
