@@ -14,6 +14,17 @@
     }
 }
 
+@mixin fs-header() {
+    font-family: "Regular";
+    font-style: normal;
+    line-height: 140%;
+    font-size: 1rem;
+
+    @include m2() {
+        font-size: rem(18px);
+    }
+}
+
 @mixin fs23() {
     font-family: "Regular";
     font-style: normal;
@@ -37,6 +48,9 @@
 
     @if ($weight != 400) {
         font-family: "Bold";
+    }
+    @include m1() {
+        font-size: rem(20px);
     }
 
     @include m2() {
@@ -87,11 +101,11 @@
     }
 }
 
-@mixin fs182() {
+@mixin fs178() {
     font-family: "Bold";
     font-style: normal;
     line-height: 100%; 
-    font-size: rem(46px);
+    font-size: clamp(2.5rem, 12.5vw ,2.875rem);
 
     @include m1() {
         font-size: rem(68px);
@@ -102,7 +116,7 @@
     }
 
     @include m3() {
-        font-size: rem(182px);
+        font-size: rem(178px);
     }
 }
 

@@ -7,12 +7,18 @@ html, body {
 body {
     min-height: 100vh;
     font-family: 'Regular';
+    color: color('white');
+    background-color: color('black');
     scroll-behavior: smooth;
 }
 
 .wrapper {
-    max-width: $wrapper-width;
+    max-width: rem(1200px);
     margin-inline: auto;
+
+    @include m3() {
+        max-width: rem(1940px);
+    }
 }
 
 .image-loading.image-loaded > img {

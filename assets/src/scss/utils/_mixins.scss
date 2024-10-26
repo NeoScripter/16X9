@@ -16,6 +16,25 @@
     }
 }
 
+@mixin image($fit: cover) {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: $fit;
+}
+
+@mixin flex($justify: center, $shrink: false) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+
+    @if $shrink == false {
+        & > * {
+            flex-shrink: 0;
+        }
+    }
+}
+
 @mixin m1() {
     @media screen and (min-width: $breakpoint768) {
         @content;

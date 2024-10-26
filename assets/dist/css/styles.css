@@ -62,7 +62,6 @@ li {
 p,
 li,
 figcaption {
-  max-width: 65ch;
   text-wrap: pretty;
 }
 
@@ -81,12 +80,19 @@ html, body {
 body {
   min-height: 100vh;
   font-family: "Regular";
+  color: #fff;
+  background-color: #121212;
   scroll-behavior: smooth;
 }
 
 .wrapper {
-  max-width: 117.44rem;
+  max-width: 75rem;
   margin-inline: auto;
+}
+@media screen and (min-width: 118.75rem) {
+  .wrapper {
+    max-width: 121.25rem;
+  }
 }
 
 .image-loading.image-loaded > img {
@@ -139,7 +145,7 @@ section {
     margin-bottom: 2.5rem;
   }
 }
-@media screen and (min-width: 90rem) {
+@media screen and (min-width: 118.75rem) {
   section {
     margin-bottom: 3rem;
   }
@@ -159,4 +165,246 @@ section {
 .single-page p {
   max-width: 85ch;
   margin-top: 0.3rem;
+}
+
+.header {
+  padding: 0.38rem 2rem;
+  position: sticky;
+  background-color: #121212;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header > * {
+  flex-shrink: 0;
+}
+@media screen and (min-width: 48rem) {
+  .header {
+    padding: 0.38rem 2.25rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .header {
+    padding: 1.5rem 2.25rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .header {
+    padding: 1.5rem 1.88rem;
+  }
+}
+
+.header__logo {
+  width: 2.88rem;
+  height: 1.69rem;
+}
+.header__logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 75rem) {
+  .header__logo {
+    width: 5.13rem;
+    height: 3.13rem;
+  }
+}
+
+.header__link {
+  display: block;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  margin-left: auto;
+  padding: 0.5rem 1.13rem;
+  margin-right: 1rem;
+  color: #fff;
+  font-family: "Regular";
+  font-style: normal;
+  line-height: 140%;
+  font-size: 1rem;
+}
+@media screen and (min-width: 75rem) {
+  .header__link {
+    font-size: 1.13rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .header__link {
+    padding: 0.63rem 1.5rem;
+    margin-right: 3.88rem;
+  }
+}
+
+.header__lang-switch {
+  display: none;
+}
+@media screen and (min-width: 48rem) {
+  .header__lang-switch {
+    gap: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__lang-switch > * {
+    flex-shrink: 0;
+  }
+}
+
+.header__btn {
+  text-transform: uppercase;
+  border: 2px solid #282728;
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.38rem;
+  color: #fff;
+  background-color: transparent;
+  font-family: "Regular";
+  font-style: normal;
+  line-height: 140%;
+  font-size: 1rem;
+}
+@media screen and (min-width: 75rem) {
+  .header__btn {
+    font-size: 1.13rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .header__btn--mobile {
+    display: none;
+  }
+}
+
+.hero {
+  padding: 3.69rem 1rem 2.07rem;
+}
+@media screen and (min-width: 48rem) {
+  .hero {
+    padding: 3.69rem 2.32rem 2.63rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero {
+    padding: 6.13rem 2.32rem 2.63rem;
+  }
+}
+
+.hero__headline,
+.hero__underline {
+  display: block;
+  font-family: "Regular";
+  font-style: normal;
+  line-height: 120%;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 48rem) {
+  .hero__headline,
+  .hero__underline {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero__headline,
+  .hero__underline {
+    font-size: 1.82rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .hero__headline,
+  .hero__underline {
+    font-size: 1.82rem;
+  }
+}
+
+.hero__underline {
+  text-align: right;
+  position: relative;
+  z-index: 5;
+}
+@media screen and (min-width: 48rem) {
+  .hero__underline {
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+}
+
+.hero__title {
+  display: block;
+  position: relative;
+  mix-blend-mode: difference;
+  color: #fff;
+  z-index: 5;
+  font-family: "Bold";
+  font-style: normal;
+  line-height: 100%;
+  font-size: clamp(2.5rem, 12.5vw, 2.875rem);
+}
+@media screen and (min-width: 48rem) {
+  .hero__title {
+    font-size: 4.25rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero__title {
+    font-size: 6.88rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .hero__title {
+    font-size: 11.13rem;
+  }
+}
+
+.hero__video {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-top: 1.69rem;
+}
+.hero__video video {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 48rem) {
+  .hero__video {
+    margin-top: -3rem;
+    width: 65%;
+    margin-left: auto;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .hero__video {
+    margin-top: -4.5rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .hero__video {
+    margin-top: -6.5rem;
+  }
+}
+
+.hero__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 5px;
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.1) 61.34%, #121212 100%), transparent;
+}
+.hero__pattern img {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

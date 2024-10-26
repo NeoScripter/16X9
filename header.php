@@ -9,5 +9,28 @@
 </head>
 
 <body <?php body_class(); ?>>
-<header>
-</header>
+
+    <div class="wrapper">
+        <header class="header">
+
+            <div class="header__logo">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/global/logo.png'; ?>" alt="16X9 video production">
+            </div>
+
+            <a href="" class="header__link">
+                Заказать проект
+            </a>
+
+            <div class="header__lang-switch">
+                <button class="header__btn">
+                    RU
+                </button>
+                <button class="header__btn">
+                    EN
+                </button>
+            </div>
+
+            <button class="header__btn header__btn--mobile">
+                EN
+            </button>
+        </header>

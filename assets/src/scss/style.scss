@@ -2,4 +2,9 @@
 @import "utils/functions";
 @import "utils/variables";
 @import "utils/mixins";
+@import "utils/typography";
 @import "utils/global";
+
+@import "components/header";
+@import "components/footer";
+@import "components/hero";

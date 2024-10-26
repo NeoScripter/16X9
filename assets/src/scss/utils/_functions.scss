@@ -37,3 +37,7 @@
 @function round_to_decimal($value) {
     @return calc(ceil($value * 100) / 100);
 }
+
+@function color($category, $variant: "neutral") {
+    @return map-get(map-get($colors, $category), $variant);
+}
