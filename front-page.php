@@ -2,12 +2,33 @@
 
 <section class="hero">
 
-    <p class="hero__headline"><?php echo get_field('hero_top_text'); ?></p>
+    <p class="hero__headline">
+        <?php
+        $current_lang = get_current_language();
+        if ($current_lang == 'en') {
+            echo get_field('hero_top_text');
+        } else {
+            echo get_field('hero_top_text_ru');
+        }; ?>
+    </p>
 
-    <h1 class="hero__title"><?php echo get_field('hero_middle_text'); ?>
+    <h1 class="hero__title">
+        <?php
+        if ($current_lang == 'en') {
+            echo get_field('hero_middle_text');
+        } else {
+            echo get_field('hero_middle_text_ru');
+        }; ?>
     </h1>
 
-    <p class="hero__underline"><?php echo get_field('hero_bottom_text'); ?></p>
+    <p class="hero__underline">
+        <?php
+        if ($current_lang == 'en') {
+            echo get_field('hero_bottom_text');
+        } else {
+            echo get_field('hero_bottom_text_ru');
+        }; ?>
+    </p>
 
     <div class="hero__video">
         <div class="hero__pattern"></div>
@@ -69,8 +90,22 @@
     <div class="marquee__wrapper">
         <?php for ($j = 0; $j < 16; $j++): ?>
             <div class="marquee__slide">
-            <h2 class="marquee__title">we create</h2>
-            <h2 class="marquee__title">we create</h2>
+                <h2 class="marquee__title">
+                    <?php
+                    if ($current_lang == 'en') {
+                        echo get_field('marquee_text');
+                    } else {
+                        echo get_field('marquee_text_ru');
+                    }; ?>
+                </h2>
+                <h2 class="marquee__title">
+                    <?php
+                    if ($current_lang == 'en') {
+                        echo get_field('marquee_text');
+                    } else {
+                        echo get_field('marquee_text_ru');
+                    }; ?>
+                </h2>
             </div>
         <?php endfor; ?>
     </div>

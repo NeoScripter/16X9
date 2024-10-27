@@ -70,6 +70,13 @@
     @include fs-header();
 }
 
+.header__btn--active {
+    color: #767676;
+    cursor: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
 .header__btn--mobile {
 
     @include m1() {

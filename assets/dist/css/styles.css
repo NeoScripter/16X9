@@ -274,6 +274,15 @@ section {
   }
 }
 
+.header__btn--active {
+  color: #767676;
+  cursor: auto;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 @media screen and (min-width: 48rem) {
   .header__btn--mobile {
     display: none;
@@ -340,6 +349,7 @@ section {
   display: block;
   position: relative;
   mix-blend-mode: difference;
+  text-transform: uppercase;
   color: #fff;
   z-index: 5;
   font-family: "Bold";

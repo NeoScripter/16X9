@@ -110,3 +110,20 @@ function custom_excerpt_length($length)
     return 30;
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
+
+function set_current_language() {
+    if (isset($_GET['lang'])) {
+        $lang = $_GET['lang'];
+
+        setcookie('current_lang', $lang, time() + (3600 * 24 * 30), '/');
+
+        header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+        exit;
+    }
+}
+
+add_action('init', 'set_current_language');
+
+function get_current_language() {
+    return isset($_COOKIE['current_lang']) ? $_COOKIE['current_lang'] : 'en';
+}

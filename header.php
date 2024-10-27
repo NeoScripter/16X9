@@ -10,6 +10,15 @@
 
 <body <?php body_class(); ?>>
 
+<?php
+$languages = [
+    'en' => 'EN',
+    'ru' => 'RU'
+];
+
+$current_lang = get_current_language();
+?>
+
     <div class="wrapper">
         <header class="header">
 
@@ -18,19 +27,25 @@
             </div>
 
             <a href="" class="header__link">
-                Заказать проект
+                <?php
+                if ($current_lang == 'en') {
+                    echo 'Get in Touch';
+                } else  {
+                    echo 'Заказать проект';
+                }
+                ;?>
             </a>
 
             <div class="header__lang-switch">
-                <button class="header__btn">
-                    RU
-                </button>
-                <button class="header__btn">
-                    EN
-                </button>
+                <?php
+                foreach ($languages as $lang_code => $lang_name) {
+                    echo '<a href="?lang=' . $lang_code . '" class="header__btn ' . ($current_lang === $lang_code ? 'header__btn--active' : '') . '">' . $lang_name . '</a> ';
+                }
+                ;?>
             </div>
 
             <button class="header__btn header__btn--mobile">
                 EN
             </button>
         </header>
+        
