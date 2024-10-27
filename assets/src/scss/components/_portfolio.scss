@@ -1,0 +1,157 @@
+.portfolio {
+    margin-bottom: rem(120px);
+    padding-inline: 1rem;
+
+    @include m1() {
+        margin-bottom: rem(160px);
+        padding-inline: rem(36px);
+    }
+    @include m2() {
+        margin-bottom: rem(200px);
+    }
+    @include m3() {
+        margin-bottom: rem(300px);
+        padding-inline: rem(30px);
+    }
+}
+
+.portfolio__categories {
+    gap: 0.7em;
+    padding-bottom: 2rem;
+    overflow: auto;
+    
+    @include flex($justify: flex-start);
+}
+
+.portfolio__category {
+    cursor: pointer;
+    color: color('gray');
+    border: none;
+    background-color: color('gray', 'dark');
+    padding: 0.4em 1.3em;
+    border-radius: 0.5em;
+
+    @include fs23();
+}
+
+.portfolio__category--active {
+    color: color('white');
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    background-color: transparent;
+}
+
+.portfolio__viewport {
+    overflow: auto;
+}
+
+.portfolio__gallery {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: rem(1000px);
+    gap: 8px;
+    & > * {
+        flex-shrink: 0;
+    }
+
+    @include m1() {
+        gap: 12px;
+        width: rem(1052px);
+    }
+    @include m2() {
+        width: auto;
+    }
+}
+
+.portfolio__item {
+    gap: 8px;
+    
+    @include flex();
+
+    @include m1() {
+        gap: 12px;
+    }
+}
+
+.portfolio__item--square-horizontal {
+    flex-direction: column;
+    flex-basis: rem(328px);
+
+    @include m1() {
+        flex-basis: rem(342px);
+    }
+
+    @include m2() {
+        flex-basis: 32.5%;
+    }
+
+    .portfolio__video {
+        flex-basis: 100%;
+    }
+}
+
+.portfolio__item--square-vertical {
+    align-items: center;
+    flex-basis: rem(328px);
+
+    @include m1() {
+        flex-basis: rem(342px);
+    }
+
+    @include m2() {
+        flex-basis: 32.5%;
+    }
+
+    .portfolio__video {
+        flex-basis: 48%;
+    }
+}
+
+.portfolio__item--rectangle-horizontal {
+    flex-basis: rem(1000px);
+    justify-content: space-between;
+    gap: 8px;
+
+    @include m1() {
+        flex-basis: 100%;
+        gap: 12px;
+    }
+
+    @include m2() {
+        justify-content: flex-start;
+    }
+
+    .portfolio__video {
+        flex-basis: 32.5%;
+    }
+}
+
+.portfolio__video {
+    overflow: hidden;
+    width: 100%;
+    img, video {
+        @include image();
+    }
+}
+
+.portfolio__video--rounded {
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+.portfolio__btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    color: color('pink');
+    display: block;
+    margin-left: auto;
+    margin-top: rem(24px);
+
+    @include fs18();
+    @include m2() {
+        margin-top: rem(48px);
+    }
+
+}

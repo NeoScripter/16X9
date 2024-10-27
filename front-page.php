@@ -112,4 +112,68 @@
 
 </section>
 
+<section class="portfolio">
+
+    <div class="portfolio__categories">
+        <?php $video_categories_with_acf = fetch_video_categories() ;?>
+
+        <?php foreach ($video_categories_with_acf as $category):?>
+
+            <button class="portfolio__category <?php echo $category['term_id'] === 2 ? 'portfolio__category--active' : '' ;?>">
+                <?php echo $category['acf_name'] ;?>
+            </button>
+        <?php endforeach ;?>
+    </div>
+
+    <div class="portfolio__viewport">
+
+        <div class="portfolio__gallery">
+
+            <div class="portfolio__item portfolio__item--square-horizontal">
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+                <div class="portfolio__video portfolio__video--rounded">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+            </div>
+
+            <div class="portfolio__item portfolio__item--square-vertical">
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-2.png'; ?>" alt="">
+                </div>
+                <div class="portfolio__video portfolio__video--rounded">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-2.png'; ?>" alt="">
+                </div>
+            </div>
+
+            <div class="portfolio__item portfolio__item--square-horizontal">
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+            </div>
+
+            <div class="portfolio__item portfolio__item--rectangle-horizontal">
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+                <div class="portfolio__video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="portfolio__btn">Показать больше проектов</button>
+
+</section>
+
 <?php get_footer(); ?>

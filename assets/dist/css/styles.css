@@ -708,3 +708,211 @@ section {
     font-size: 12.5rem;
   }
 }
+
+.portfolio {
+  margin-bottom: 7.5rem;
+  padding-inline: 1rem;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio {
+    margin-bottom: 10rem;
+    padding-inline: 2.25rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio {
+    margin-bottom: 12.5rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .portfolio {
+    margin-bottom: 18.75rem;
+    padding-inline: 1.88rem;
+  }
+}
+
+.portfolio__categories {
+  gap: 0.7em;
+  padding-bottom: 2rem;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.portfolio__categories > * {
+  flex-shrink: 0;
+}
+
+.portfolio__category {
+  cursor: pointer;
+  color: #888888;
+  border: none;
+  background-color: #282728;
+  padding: 0.4em 1.3em;
+  border-radius: 0.5em;
+  font-family: "Regular";
+  font-style: normal;
+  line-height: 130%;
+  font-size: 1rem;
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__category {
+    font-size: 1.13rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .portfolio__category {
+    font-size: 1.44rem;
+  }
+}
+
+.portfolio__category--active {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  background-color: transparent;
+}
+
+.portfolio__viewport {
+  overflow: auto;
+}
+
+.portfolio__gallery {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 62.5rem;
+  gap: 8px;
+}
+.portfolio__gallery > * {
+  flex-shrink: 0;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio__gallery {
+    gap: 12px;
+    width: 65.75rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__gallery {
+    width: auto;
+  }
+}
+
+.portfolio__item {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio__item > * {
+  flex-shrink: 0;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio__item {
+    gap: 12px;
+  }
+}
+
+.portfolio__item--square-horizontal {
+  flex-direction: column;
+  flex-basis: 20.5rem;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio__item--square-horizontal {
+    flex-basis: 21.38rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__item--square-horizontal {
+    flex-basis: 32.5%;
+  }
+}
+.portfolio__item--square-horizontal .portfolio__video {
+  flex-basis: 100%;
+}
+
+.portfolio__item--square-vertical {
+  align-items: center;
+  flex-basis: 20.5rem;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio__item--square-vertical {
+    flex-basis: 21.38rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__item--square-vertical {
+    flex-basis: 32.5%;
+  }
+}
+.portfolio__item--square-vertical .portfolio__video {
+  flex-basis: 48%;
+}
+
+.portfolio__item--rectangle-horizontal {
+  flex-basis: 62.5rem;
+  justify-content: space-between;
+  gap: 8px;
+}
+@media screen and (min-width: 48rem) {
+  .portfolio__item--rectangle-horizontal {
+    flex-basis: 100%;
+    gap: 12px;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__item--rectangle-horizontal {
+    justify-content: flex-start;
+  }
+}
+.portfolio__item--rectangle-horizontal .portfolio__video {
+  flex-basis: 32.5%;
+}
+
+.portfolio__video {
+  overflow: hidden;
+  width: 100%;
+}
+.portfolio__video img, .portfolio__video video {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.portfolio__video--rounded {
+  border-radius: 3rem;
+  overflow: hidden;
+}
+
+.portfolio__btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  color: #CD2652;
+  display: block;
+  margin-left: auto;
+  margin-top: 1.5rem;
+  font-family: "Regular";
+  font-style: normal;
+  line-height: 140%;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__btn {
+    font-size: 1.13rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .portfolio__btn {
+    font-size: 1.13rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .portfolio__btn {
+    margin-top: 3rem;
+  }
+}

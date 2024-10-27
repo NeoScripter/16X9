@@ -127,3 +127,37 @@ add_action('init', 'set_current_language');
 function get_current_language() {
     return isset($_COOKIE['current_lang']) ? $_COOKIE['current_lang'] : 'en';
 }
+
+function fetch_video_categories() {
+    $video_categories = get_terms([
+        'taxonomy' => 'video_category',
+        'hide_empty' => false, 
+    ]);
+
+    if (!empty($video_categories) && !is_wp_error($video_categories)) {
+        $categories_with_acf = [];
+
+        foreach ($video_categories as $category) {
+            $field_name = '';
+            $current_lang = get_current_language();
+            if ($current_lang == 'en') {
+                $field_name = 'video_category_name';
+            } else {
+                $field_name = 'video_category_name_ru';
+            };
+            $video_category_name = get_field($field_name, 'video_category_' . $category->term_id);
+
+            if ($video_category_name) {
+                $categories_with_acf[] = [
+                    'term_id' => $category->term_id,
+                    'name' => $category->name,
+                    'acf_name' => $video_category_name,
+                ];
+            }
+        }
+
+        return $categories_with_acf;
+    }
+
+    return []; 
+}
