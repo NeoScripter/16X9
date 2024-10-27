@@ -1,0 +1,44 @@
+.marquee {
+    overflow: hidden;
+    user-select: none;
+
+    margin-bottom: rem(120px);
+    height: rem(490px);
+
+    &:hover .marquee__slide {
+        animation-play-state: paused;
+    }
+
+    @include m1() {
+        margin-bottom: rem(160px);
+        height: rem(600px);
+    }
+    @include m2() {
+        margin-bottom: rem(200px);
+    }
+    @include m3() {
+        height: rem(570px);
+        margin-bottom: rem(300px);
+    }
+}
+
+.marquee__wrapper {
+    display: grid;
+    position: relative;
+    gap: 1.5em;
+    transform: rotate(-18deg) translateY(-50%);
+}
+
+.marquee__slide {
+    white-space: nowrap;
+    display: block;
+}
+
+.marquee__title {
+    display: inline-block;
+    margin-right: 2rem;
+    text-transform: uppercase;
+    color: color("pink");
+
+    @include fs200();
+}

@@ -1,4 +1,5 @@
 .hero {
+    user-select: none;
     padding: rem(59px) 1rem 0;
 
     @include m1() {

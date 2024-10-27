@@ -281,6 +281,9 @@ section {
 }
 
 .hero {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   padding: 3.69rem 1rem 0;
 }
 @media screen and (min-width: 48rem) {
@@ -487,19 +490,24 @@ section {
 .featured__wrapper::before {
   left: -2px;
 }
+@media screen and (min-width: 48rem) {
+  .featured__wrapper::before {
+    content: none;
+  }
+}
 
 .featured__wrapper::after {
   right: -2px;
 }
 
 .featured__video {
-  overflow: hidden;
   cursor: pointer;
   border-radius: 0.75rem;
   width: 80%;
   aspect-ratio: 2.3/1;
 }
 .featured__video video {
+  border-radius: 0.75rem;
   width: 100%;
   height: 100%;
   -o-object-position: center;
@@ -513,14 +521,40 @@ section {
   }
 }
 
+.featured__video:nth-of-type(1) {
+  position: relative;
+}
 @media screen and (min-width: 48rem) {
   .featured__video:nth-of-type(1) {
     align-self: flex-start;
+  }
+  .featured__video:nth-of-type(1) .featured__video-gradient {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 2px;
+    z-index: 20;
+    height: 750px;
+    transform: translateY(-14%);
+    background: linear-gradient(to bottom, rgba(128, 128, 128, 0), gray, rgba(128, 128, 128, 0));
+    pointer-events: none;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .featured__video:nth-of-type(1) .featured__video-gradient {
+    height: 950px;
+    transform: translateY(-14%);
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .featured__video:nth-of-type(1) .featured__video-gradient {
+    transform: translateY(-16%);
   }
 }
 
 .featured__video:nth-of-type(2) {
   align-self: flex-end;
+  position: relative;
   width: 40%;
   aspect-ratio: 0.6/1;
 }
@@ -529,10 +563,25 @@ section {
     width: 17.5%;
     align-self: center;
   }
+  .featured__video:nth-of-type(2) .featured__video-gradient {
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 2px;
+    z-index: 20;
+    height: 750px;
+    transform: translateY(-35%);
+    background: linear-gradient(to bottom, rgba(128, 128, 128, 0), gray, rgba(128, 128, 128, 0));
+    pointer-events: none;
+  }
 }
 @media screen and (min-width: 75rem) {
   .featured__video:nth-of-type(2) {
     margin-bottom: 10%;
+  }
+  .featured__video:nth-of-type(2) .featured__video-gradient {
+    height: 950px;
+    transform: translateY(-30%);
   }
 }
 @media screen and (min-width: 118.75rem) {
@@ -553,37 +602,25 @@ section {
   }
 }
 
-.video-popup {
+.popup__overlay {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.video-popup__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+.popup__content {
+  max-width: 90%;
+  max-height: 90%;
 }
 
-.video-popup__content {
-  position: relative;
-  z-index: 10;
-}
-
-.video-popup__close {
+.popup__close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 2rem;
   font-size: 24px;
   color: white;
   background: none;
@@ -591,7 +628,73 @@ section {
   cursor: pointer;
 }
 
-.video-main {
-  max-width: 80%;
-  height: auto;
+.popup__video {
+  width: 100%;
+  height: 100%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.marquee {
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  margin-bottom: 7.5rem;
+  height: 30.63rem;
+}
+.marquee:hover .marquee__slide {
+  animation-play-state: paused;
+}
+@media screen and (min-width: 48rem) {
+  .marquee {
+    margin-bottom: 10rem;
+    height: 37.5rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .marquee {
+    margin-bottom: 12.5rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .marquee {
+    height: 35.63rem;
+    margin-bottom: 18.75rem;
+  }
+}
+
+.marquee__wrapper {
+  display: grid;
+  position: relative;
+  gap: 1.5em;
+  transform: rotate(-18deg) translateY(-50%);
+}
+
+.marquee__slide {
+  white-space: nowrap;
+  display: block;
+}
+
+.marquee__title {
+  display: inline-block;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  color: #CD2652;
+  font-family: "Bold";
+  font-style: normal;
+  line-height: 110%;
+  font-size: 3.75rem;
+}
+@media screen and (min-width: 75rem) {
+  .marquee__title {
+    font-size: 6.88rem;
+  }
+}
+@media screen and (min-width: 118.75rem) {
+  .marquee__title {
+    font-size: 12.5rem;
+  }
 }

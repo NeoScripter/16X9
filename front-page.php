@@ -38,6 +38,7 @@
     <div class="featured__wrapper">
         <?php if (have_rows('featured_video')): while (have_rows('featured_video')): the_row(); ?>
                 <div class="featured__video">
+                    <div class="featured__video-gradient"></div>
                     <video
                         class="video-preview"
                         muted
@@ -52,16 +53,26 @@
         endif; ?>
     </div>
 
-    <!-- Popup Structure -->
-    <div class="video-popup" id="video-popup">
-        <div class="video-popup__overlay"></div>
-        <div class="video-popup__content">
-            <button class="video-popup__close">&times;</button>
-            <video class="video-main" controls>
+    <div class="popup__overlay" id="popup__overlay">
+        <div class="popup__content">
+            <button class="popup__close-btn">&times;</button>
+            <video class="popup__video" controls>
                 <source type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
+    </div>
+
+</section>
+
+<section class="marquee">
+    <div class="marquee__wrapper">
+        <?php for ($j = 0; $j < 16; $j++): ?>
+            <div class="marquee__slide">
+            <h2 class="marquee__title">we create</h2>
+            <h2 class="marquee__title">we create</h2>
+            </div>
+        <?php endfor; ?>
     </div>
 
 </section>
