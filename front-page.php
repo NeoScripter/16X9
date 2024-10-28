@@ -56,7 +56,7 @@
         <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/kassette.png'; ?>" alt="pink kassette">
     </div>
 
-    <div class="featured__wrapper">
+    <div class="featured__wrapper popup-videos-parent">
         <?php if (have_rows('featured_video')): while (have_rows('featured_video')): the_row(); ?>
                 <div class="featured__video">
                     <div class="featured__video-gradient"></div>
@@ -115,62 +115,41 @@
 <section class="portfolio">
 
     <div class="portfolio__categories">
-        <?php $video_categories_with_acf = fetch_video_categories() ;?>
-
-        <?php foreach ($video_categories_with_acf as $category):?>
-
-            <button class="portfolio__category <?php echo $category['term_id'] === 2 ? 'portfolio__category--active' : '' ;?>">
-                <?php echo $category['acf_name'] ;?>
+        <?php $video_categories_with_acf = fetch_video_categories(); ?>
+        <?php foreach ($video_categories_with_acf as $index => $category): ?>
+            <button class="portfolio__category <?php echo $index === 0 ? 'portfolio__category--active' : ''; ?>"
+                data-category-id="<?php echo $category['id']; ?>">
+                <?php echo esc_html($category['acf_name']); ?>
             </button>
-        <?php endforeach ;?>
+        <?php endforeach; ?>
     </div>
 
-    <div class="portfolio__viewport">
-
-        <div class="portfolio__gallery">
-
-            <div class="portfolio__item portfolio__item--square-horizontal">
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
+    <div class="portfolio__viewport popup-videos-parent">
+        <div class="portfolio__gallery" id="portfolio-gallery" data-ajax-url="<?php echo esc_url(admin_url('admin-ajax.php')); ?>">
+            <?php
+            $initial_portfolio_items = fetch_videos_by_category($video_categories_with_acf[0]['id']);
+            foreach ($initial_portfolio_items as $videos):
+                $layout_type = $videos[0]['layout_type'];
+            ?>
+                <div class="portfolio__item portfolio__item--<?php echo esc_attr($layout_type); ?>">
+                    <?php foreach ($videos as $video): ?>
+                        <div class="portfolio__video <?php echo $video['is_rounded'] ? 'portfolio__video--rounded' : ''; ?> <?php echo empty($video['video_url']) ? 'portfolio__video--empty' : ''; ?>">
+                            <?php if (!empty($video['video_url'])): ?>
+                                <video
+                                class="video-preview"
+                                    muted
+                                    loop
+                                    poster="<?php echo esc_url($video['thumbnail']); ?>"
+                                    data-high-quality="<?php echo $video['high_quality']; ?>"
+                                    src="<?php echo esc_url($video['video_url']); ?>"></video>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="portfolio__video portfolio__video--rounded">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio__item portfolio__item--square-vertical">
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-2.png'; ?>" alt="">
-                </div>
-                <div class="portfolio__video portfolio__video--rounded">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-2.png'; ?>" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio__item portfolio__item--square-horizontal">
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio__item portfolio__item--rectangle-horizontal">
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-                <div class="portfolio__video">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/featured/featured-1.png'; ?>" alt="">
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
-
     </div>
+
 
     <button class="portfolio__btn">Показать больше проектов</button>
 

@@ -10,7 +10,7 @@ module.exports = {
   },
   mode: 'development',
   entry: {
-    main: ['./assets/src/ts/script.ts'],
+    main: ['./assets/src/ts/script.ts', './assets/src/js/script.js'],
     styles: './assets/src/scss/style.scss'
   },
   

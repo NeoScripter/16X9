@@ -1,65 +1,55 @@
 export default class VideoPopupHandler {
-    private previewVideos: NodeListOf<HTMLVideoElement>;
     private popupOverlay: HTMLElement;
     private popupVideo: HTMLVideoElement;
     private closeButton: HTMLButtonElement;
-    private observer: IntersectionObserver | null = null;
+    private galleryContainers: NodeListOf<HTMLElement>;
 
     constructor() {
-        this.previewVideos = document.querySelectorAll<HTMLVideoElement>('.video-preview');
         this.popupOverlay = document.getElementById('popup__overlay') as HTMLElement;
         this.popupVideo = this.popupOverlay.querySelector('.popup__video') as HTMLVideoElement;
         this.closeButton = this.popupOverlay.querySelector('.popup__close-btn') as HTMLButtonElement;
+        this.galleryContainers = document.querySelectorAll<HTMLElement>('.popup-videos-parent');
     }
 
     public init() {
-        this.initializeObserver();
-        this.attachEventListeners();
+        this.attachEventsToContainers();
+        this.attachPopupEvents();
     }
 
-    // Initialize the Intersection Observer
-    private initializeObserver(): void {
-        this.observer = new IntersectionObserver(this.handleIntersection.bind(this));
-
-        this.previewVideos.forEach((video) => {
-            const lowQualitySrc = video.querySelector('source')?.getAttribute('src');
-            video.setAttribute('data-src', lowQualitySrc || '');
-
-            video.querySelector('source')?.removeAttribute('src');
-
-            this.observer?.observe(video);
+    // Attach event listeners to each .popup-videos-parent container
+    private attachEventsToContainers(): void {
+        this.galleryContainers.forEach(container => {
+            container.addEventListener('mouseenter', (event) => this.handleMouseEnter(event), true);
+            container.addEventListener('mouseleave', (event) => this.handleMouseLeave(event), true);
+            container.addEventListener('click', (event) => this.handleClick(event), true);
         });
     }
 
-    // Handle Intersection Observer entries
-    private handleIntersection(entries: IntersectionObserverEntry[]): void {
-        entries.forEach((entry) => {
-            const video = entry.target as HTMLVideoElement;
+    // Handle mouseenter event for videos
+    private handleMouseEnter(event: Event): void {
+        const target = event.target as HTMLVideoElement;
 
-            if (entry.isIntersecting) {
-                this.loadVideo(video);
-                this.observeHover(video);
-                this.observer?.unobserve(video); 
-            }
-        });
-    }
-
-    // Load the video when it becomes visible
-    private loadVideo(video: HTMLVideoElement): void {
-        const source = video.querySelector('source') as HTMLSourceElement;
-        const dataSrc = video.getAttribute('data-src');
-
-        if (source && dataSrc) {
-            source.src = dataSrc;
-            video.load();
+        if (target && target.tagName === 'VIDEO' && target.classList.contains('video-preview')) {
+            this.playVideo(target);
         }
     }
 
-    // Attach hover and click event listeners
-    private observeHover(video: HTMLVideoElement): void {
-        video.addEventListener('mouseenter', () => this.playVideo(video));
-        video.addEventListener('mouseleave', () => this.resetVideo(video));
-        video.addEventListener('click', () => this.openPopup(video));
+    // Handle mouseleave event for videos
+    private handleMouseLeave(event: Event): void {
+        const target = event.target as HTMLVideoElement;
+
+        if (target && target.tagName === 'VIDEO' && target.classList.contains('video-preview')) {
+            this.resetVideo(target);
+        }
+    }
+
+    // Handle click event for videos
+    private handleClick(event: Event): void {
+        const target = event.target as HTMLVideoElement;
+
+        if (target && target.tagName === 'VIDEO' && target.classList.contains('video-preview')) {
+            this.openPopup(target);
+        }
     }
 
     // Play video on hover
@@ -89,8 +79,8 @@ export default class VideoPopupHandler {
         }
     }
 
-    // Attach popup and overlay event listeners
-    private attachEventListeners(): void {
+    // Attach event listeners for closing the popup
+    private attachPopupEvents(): void {
         this.closeButton.addEventListener('click', () => this.closePopup());
         this.popupOverlay.addEventListener('click', (event) => {
             if (event.target === this.popupOverlay) this.closePopup();

@@ -74,7 +74,7 @@
     }
 }
 
-.portfolio__item--square-horizontal {
+.portfolio__item--square_horizontal {
     flex-direction: column;
     flex-basis: rem(328px);
 
@@ -91,7 +91,7 @@
     }
 }
 
-.portfolio__item--square-vertical {
+.portfolio__item--square_vertical {
     align-items: center;
     flex-basis: rem(328px);
 
@@ -108,7 +108,7 @@
     }
 }
 
-.portfolio__item--rectangle-horizontal {
+.portfolio__item--rectangle_horizontal {
     flex-basis: rem(1000px);
     justify-content: space-between;
     gap: 8px;
@@ -128,15 +128,17 @@
 }
 
 .portfolio__video {
+    cursor: pointer;
     overflow: hidden;
     width: 100%;
+    height: 100%;
     img, video {
         @include image();
     }
 }
 
 .portfolio__video--rounded {
-    border-radius: 3rem;
+    border-radius: 10rem;
     overflow: hidden;
 }
 
