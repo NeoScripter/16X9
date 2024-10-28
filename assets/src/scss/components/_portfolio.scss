@@ -42,7 +42,33 @@
 }
 
 .portfolio__viewport {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: clip;
+    scrollbar-width: none;
+    -ms-overflow-style: none;  
+
+
+    height: rem(580px);
+
+    @include m1() {
+        height: rem(590px);
+    }
+
+    @include m2() {
+        height: rem(448px);
+    }
+    
+    @include m3() {
+        height: rem(404px);
+    }
+
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+}
+
+.portfolio__viewport--full {
+    height: auto;
 }
 
 .portfolio__gallery {

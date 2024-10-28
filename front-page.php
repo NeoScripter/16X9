@@ -136,7 +136,7 @@
                         <div class="portfolio__video <?php echo $video['is_rounded'] ? 'portfolio__video--rounded' : ''; ?> <?php echo empty($video['video_url']) ? 'portfolio__video--empty' : ''; ?>">
                             <?php if (!empty($video['video_url'])): ?>
                                 <video
-                                class="video-preview"
+                                    class="video-preview"
                                     muted
                                     loop
                                     poster="<?php echo esc_url($video['thumbnail']); ?>"
@@ -153,6 +153,47 @@
 
     <button class="portfolio__btn">Показать больше проектов</button>
 
+</section>
+
+<section class="brands">
+
+    <div class="brands__wrapper">
+        <div class="brands__content">
+            <?php
+            if ($current_lang == 'en') {
+                echo get_field('brands_text');
+            } else {
+                echo get_field('brands_text_ru');
+            }; ?>
+        </div>
+
+        <picture>
+            <!-- Image for screens larger than 1024px -->
+            <source srcset="<?php echo get_template_directory_uri() . '/assets/images/brands/brands-large.png'; ?>" media="(min-width: 1024px)">
+
+            <!-- Fallback image -->
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/brands/brands-large.png'; ?>" alt="brands list">
+        </picture>
+
+    </div>
+
+</section>
+
+<section class="kassette">
+        <?php
+        $video = '';
+        if ($current_lang == 'en') {
+            $video = get_field('kassette');
+        } else {
+            $video = get_field('kassette_ru');
+        }; ?>
+            <video
+                muted
+                autoplay
+                loop>
+                <source src="<?php echo $video['url']; ?>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 </section>
 
 <?php get_footer(); ?>
