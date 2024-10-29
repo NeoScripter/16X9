@@ -83,10 +83,10 @@
 }
 
 @mixin fs110() {
-    font-family: "ExtraBold";
+    font-family: "Bold";
     font-style: normal;
     line-height: 110%; 
-    font-size: rem(29px);
+    font-size: clamp(rem(20px), 6.25vw, rem(29px));
 
     @include m1() {
         font-size: rem(50px);

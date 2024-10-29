@@ -48,18 +48,18 @@
     -ms-overflow-style: none;  
 
 
-    height: rem(580px);
+    height: rem(380px);
 
     @include m1() {
-        height: rem(590px);
+        height: rem(380px);
     }
 
     @include m2() {
-        height: rem(448px);
+        height: rem(388px);
     }
     
     @include m3() {
-        height: rem(404px);
+        height: rem(604px);
     }
 
     &::-webkit-scrollbar {

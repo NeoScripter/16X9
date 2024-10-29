@@ -40,7 +40,7 @@
                 muted
 
                 loop
-                poster="<?php echo get_template_directory_uri() . '/assets/images/global/hero-preview.webp'; ?>">
+                poster="<?php echo get_field('hero_preview')['url']; ?>">
                 <source src="<?php echo esc_url($video); ?>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -172,7 +172,7 @@
             <source srcset="<?php echo get_template_directory_uri() . '/assets/images/brands/brands-large.png'; ?>" media="(min-width: 1024px)">
 
             <!-- Fallback image -->
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/brands/brands-large.png'; ?>" alt="brands list">
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/brands/brands-small.png'; ?>" alt="brands list">
         </picture>
 
     </div>
@@ -180,20 +180,44 @@
 </section>
 
 <section class="kassette">
-        <?php
-        $video = '';
-        if ($current_lang == 'en') {
-            $video = get_field('kassette');
-        } else {
-            $video = get_field('kassette_ru');
-        }; ?>
-            <video
-                muted
-                autoplay
-                loop>
-                <source src="<?php echo $video['url']; ?>" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+    <?php
+    $video = '';
+    if ($current_lang == 'en') {
+        $video = get_field('kassette');
+    } else {
+        $video = get_field('kassette_ru');
+    }; ?>
+    <video
+        muted
+        autoplay
+        loop>
+        <source src="<?php echo $video['url']; ?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+<section class="typing">
+
+    <div class="typing__wrapper">
+        <div class="typing__text">
+            
+        </div>
+        <div class="typing__video">
+            <div class="typing__pattern"></div>
+            <?php
+            $video = get_field('typing_video');
+            if ($video): ?>
+                <video
+                    muted
+                    loop
+                    poster="<?php echo get_field('typing_preview')['url']; ?>">
+                    <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            <?php endif; ?>
+        </div>
+    </div>
+
 </section>
 
 <?php get_footer(); ?>
