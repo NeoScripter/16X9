@@ -38,7 +38,7 @@
         if ($video): ?>
             <video
                 muted
-
+                autoplay
                 loop
                 poster="<?php echo get_field('hero_preview')['url']; ?>">
                 <source src="<?php echo esc_url($video); ?>" type="video/mp4">
@@ -199,9 +199,18 @@
 <section class="typing">
 
     <div class="typing__wrapper">
-        <div class="typing__text">
-            
+        <div class="typing__text <?php echo $current_lang == 'en' ? 'typing__text--eng' : '' ;?>">
+            <?php
+            $span_content = '';
+            if ($current_lang == 'en') {
+                $span_content = get_field('typing_animation');
+            } else {
+                $span_content = get_field('typing_animation_ru');
+            }; ?>
+                <span class="typing__bg-text"><?php echo $span_content ;?></span>
+                <span class="typing__front-text"></span>
         </div>
+
         <div class="typing__video">
             <div class="typing__pattern"></div>
             <?php
@@ -210,6 +219,7 @@
                 <video
                     muted
                     loop
+                    autoplay
                     poster="<?php echo get_field('typing_preview')['url']; ?>">
                     <source src="<?php echo esc_url($video['url']); ?>" type="video/mp4">
                     Your browser does not support the video tag.

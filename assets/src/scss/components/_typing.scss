@@ -26,13 +26,60 @@
 }
 
 .typing__text {
-    text-align: center;
+    position: relative;
     text-wrap: balance;
     text-transform: uppercase;
-    white-space: pre-wrap;
+    margin-inline: auto;
+    text-indent: 1ch;
+    width: min(80%, 328px);
 
     @include fs110();
     
+    @include m1() {
+        width: rem(580px);
+    }
+    @include m2() {
+        width: rem(934px);
+    }
+    @include m3() {
+        width: rem(1240px);
+    }
+}
+
+.typing__text.typing__text--eng {
+    text-indent: rem(40px);
+    width: min(90%, 378px);
+
+    
+    @include m1() {
+        text-indent: clamp(rem(50px), 7vw, rem(80px));
+        width: clamp(rem(450px), 57vw, rem(650px));
+        font-size: clamp(rem(30px), 4vw, rem(50px));
+    }
+    @include m2() {
+        text-indent: rem(120px);
+        width: rem(1104px);
+        margin-left: rem(-100px);
+        @include fs110();
+    }
+    @include m3() {
+        text-indent: rem(180px);
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.typing__bg-text {
+    color: color('gray');
+}
+
+.typing__front-text {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    white-space: pre-wrap;
 }
 
 .typing__video {
