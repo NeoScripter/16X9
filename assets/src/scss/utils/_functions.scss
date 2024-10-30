@@ -16,7 +16,7 @@
 // Определяет значение clamp для адаптивного размера элемента на странице. 
 @function adapt(
     $initial-size,
-    $initial-screen-width: $screen-width,
+    $initial-screen-width: 1920px,
     $small-screen-size: $small-screen,
     $large-screen-size: $large-screen
 ) {

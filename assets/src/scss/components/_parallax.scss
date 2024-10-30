@@ -1,0 +1,220 @@
+.parallax {
+    margin-block: rem(120px);
+    padding-inline: 1rem;
+
+    @include m1() {
+        margin-block: rem(160px);
+        padding-inline: rem(36px);
+    }
+    @include m2() {
+        margin-block: rem(200px);
+        padding-inline: rem(45px);
+    }
+    @include m3() {
+        margin-block: rem(300px);
+        padding-inline: rem(30px);
+    }
+}
+
+
+.parallax__categories {
+    z-index: 3;
+    height: rem(789px);
+    --columns: 2;
+    display: column;
+    gap: 0;
+    columns: var(--columns);
+
+    @include m1() {
+        --columns: 4;
+    }
+    @include m2() {
+        --columns: 5;
+        height: rem(1186px);
+    }
+    @include m3() {
+        --columns: 6;
+    }
+}
+
+.parallax__flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-left: rem(-10px);
+
+    @include fs23();
+
+    img {
+        width: rem(20px);
+        height: rem(20px);
+        flex-shrink: 0;
+        padding-top: rem(7px);
+    }
+}
+
+.parallax__category {
+    break-inside: avoid;
+    display: flex;
+    z-index: 3;
+    border-left: 1px solid rgba(102, 102, 102, 0.3);
+}
+
+.parallax__category-1 {
+    height: calc(100% / 3.1);
+
+    @include m1() {
+        height: rem(240px);
+    }
+    @include m2() {
+        height: rem(900px);
+    }
+}
+
+.parallax__category-2 {
+    height: calc(100% / 3.1);
+
+    @include m1() {
+        height: rem(500px);
+    }
+    @include m2() {
+        height: rem(260px);
+    }
+}
+
+.parallax__category-3 {
+    height: calc(100% / 3.1);
+
+    @include m1() {
+        height: max-content;
+    }
+    @include m2() {
+        height: 100%;
+
+        .parallax__flex {
+            margin-top: 450px;
+        }
+    }
+}
+
+.parallax__category-4 {
+    height: max-content;
+
+    @include m1() {
+        height: 100%;
+
+        .parallax__flex {
+            margin-top: 400px;
+        }
+    }
+    @include m2() {
+        .parallax__flex {
+            margin-top: 773px;
+        }
+    }
+}
+
+.parallax__category-5 {
+    height: calc(100% / 3);
+    align-items: center;
+
+    @include m1() {
+        height: rem(280px);
+    }
+    @include m2() {
+        height: rem(400px);
+    }
+    @include m3() {
+        height: 100%;
+        align-items: flex-start;
+        padding-top: rem(200px);
+    }
+}
+
+.parallax__category-6 {
+    height: calc(100% / 3);
+    align-items: center;
+
+    @include m1() {
+        height: rem(280px);
+        margin-top: rem(200px);
+    }
+    @include m2() {
+        height: rem(700px);
+        margin-top: 0;
+        align-items: flex-end;
+    }
+    @include m3() {
+        height: 100%;
+    }
+}
+
+.parallax__category-7 {
+    height: calc(100% / 3);
+    align-items: center;
+
+    @include m1() {
+        height: 100%;
+    }
+    @include m2() {
+        margin-top: rem(200px);
+    }
+}
+
+.parallax__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-top: rem(120px);
+    gap: rem(12px);
+    background-color: color('pink');
+    border-radius: 3rem;
+    padding: 1rem;
+    font-family: "Bold";
+    font-style: normal;
+    line-height: 120%;
+    font-size: rem(18px);
+    transition: background-color 0.3s ease,
+    color 0.3s ease;
+    z-index: 10;
+    transform: translateY(1px);
+
+    @include hover() {
+        background-color: #fff;
+        color: color('pink');
+
+        circle {
+            fill: color('pink');
+        }
+        line {
+            stroke: color('white');
+        }
+    }
+
+    svg {
+        width: rem(20px);
+        height: rem(20px);
+        transition: all 0.3s ease;
+
+        circle {
+            transition: all 0.3s ease;
+        }
+        line {
+            transition: all 0.3s ease;
+        }
+    }
+
+
+    @include m2() {
+        margin-top: rem(200px);
+        width: rem(612px);
+        font-size: rem(29px);
+        padding: 1.5rem;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}

@@ -41,12 +41,17 @@
     padding: rem(8px) rem(18px);
     margin-right: 1rem;
     color: color('white');
+    transition: color 0.3s ease;
 
     @include fs-header();
 
     @include m2() {
         padding: rem(10px) rem(24px);
         margin-right: rem(62px);
+    }
+
+    @include hover() {
+        color: color('pink');
     }
 }
 

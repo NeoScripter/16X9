@@ -1,6 +1,7 @@
 .typing {
     margin-block: rem(120px);
     padding-inline: 1rem;
+    z-index: 6;
 
     @include m1() {
         margin-block: rem(160px);
@@ -83,7 +84,6 @@
 }
 
 .typing__video {
-
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;

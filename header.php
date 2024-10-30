@@ -26,7 +26,7 @@ $current_lang = get_current_language();
                 <img src="<?php echo get_template_directory_uri() . '/assets/images/global/logo.png'; ?>" alt="16X9 video production">
             </div>
 
-            <a href="" class="header__link">
+            <a href="<?php echo get_field('telegram_link', 'options'); ?>" class="header__link">
                 <?php
                 if ($current_lang == 'en') {
                     echo 'Get in Touch';
@@ -44,8 +44,9 @@ $current_lang = get_current_language();
                 ;?>
             </div>
 
-            <button class="header__btn header__btn--mobile">
-                EN
-            </button>
+            <?php
+                $opposite_lang = $current_lang === 'en' ? 'ru' : 'en';
+                echo '<a href="?lang=' . $opposite_lang . '" class="header__btn header__btn--mobile">' . $languages[$current_lang] . '</a> ';
+                ;?>
         </header>
         

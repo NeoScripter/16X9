@@ -33,5 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
         .typeString(`\n${secondString}`)
         .pauseFor(2000)
         .deleteAll()
-        .start()
+        .start();
 });

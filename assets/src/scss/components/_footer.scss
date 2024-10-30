@@ -1,0 +1,77 @@
+.footer {
+}
+
+.footer__flex {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding-inline: 1rem;
+    margin-bottom: 0.5rem;
+
+    @include m1() {
+        padding-inline: rem(36px);
+    }
+    @include m2() {
+        padding-inline: rem(45px);
+    }
+    @include m3() {
+        padding-inline: rem(30px);
+    }
+}
+
+.footer__qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__link {
+    @include fs23();
+
+    @include hover() {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+}
+
+.footer__image {
+    display: none;
+    img {
+        @include image();
+    }
+
+    @include m2() {
+        margin-bottom: 2rem;
+        display: block;
+        width: rem(130px);
+        height: rem(143px);
+    }
+}
+
+.footer__title {
+    display: block;
+    color: color("gray");
+    text-transform: uppercase;
+    font-family: "Bold";
+    font-style: normal;
+    line-height: 110%;
+    height: 1em;
+    overflow: hidden;
+    text-wrap: nowrap;
+
+    font-size: adapt($initial-size: 35px, $initial-screen-width: 360px, $small-screen-size: 360px, $large-screen-size: 768px);
+
+    @include m1() {
+        height: 0.85em;
+        font-size: adapt($initial-size: 75px, $initial-screen-width: 768px, $small-screen-size: 768px, $large-screen-size: 1200px);
+    }
+
+    @include m2() {
+        font-size: adapt($initial-size: 120px, $initial-screen-width: 1200px, $small-screen-size: 1200px, $large-screen-size: 1920px);
+    }
+
+    @include m3() {
+        font-size: adapt($initial-size: 188px, $initial-screen-width: 1920px, $small-screen-size: 1920px, $large-screen-size: 2200px);
+    }
+}

@@ -19,8 +19,15 @@
     gap: 0.7em;
     padding-bottom: 2rem;
     overflow: auto;
-    
+    scrollbar-width: none;
+    -ms-overflow-style: none;  
+
     @include flex($justify: flex-start);
+    
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+    
 }
 
 .portfolio__category {
@@ -182,4 +189,8 @@
         margin-top: rem(48px);
     }
 
+    @include hover() {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
 }

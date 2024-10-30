@@ -199,7 +199,7 @@
 <section class="typing">
 
     <div class="typing__wrapper">
-        <div class="typing__text <?php echo $current_lang == 'en' ? 'typing__text--eng' : '' ;?>">
+        <div class="typing__text <?php echo $current_lang == 'en' ? 'typing__text--eng' : ''; ?>">
             <?php
             $span_content = '';
             if ($current_lang == 'en') {
@@ -207,8 +207,8 @@
             } else {
                 $span_content = get_field('typing_animation_ru');
             }; ?>
-                <span class="typing__bg-text"><?php echo $span_content ;?></span>
-                <span class="typing__front-text"></span>
+            <span class="typing__bg-text"><?php echo $span_content; ?></span>
+            <span class="typing__front-text"></span>
         </div>
 
         <div class="typing__video">
@@ -228,6 +228,31 @@
         </div>
     </div>
 
+</section>
+
+<section class="parallax">
+
+    <div class="parallax__categories">
+
+        <?php foreach ($video_categories_with_acf as $index => $category): ?>
+            <div class="parallax__category <?php echo ' parallax__category-' . $index+1;?>">
+                <div class="parallax__flex">
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/global/plus.svg'; ?>" alt="Pink plus sign">
+                <?php echo esc_html($category['acf_name']); ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <a href="<?php echo get_field('telegram_link', 'options'); ?>" class="parallax__link">
+        <?php include get_template_directory() . '/assets/images/global/parallax_link.svg'; ?>
+        <?php
+        if ($current_lang == 'en') {
+            echo 'reach out';
+        } else {
+            echo 'обсудить проект';
+        }; ?>
+    </a>
 </section>
 
 <?php get_footer(); ?>
