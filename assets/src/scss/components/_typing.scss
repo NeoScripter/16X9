@@ -1,6 +1,9 @@
 .typing {
     margin-block: rem(120px);
     padding-inline: 1rem;
+    margin-inline: auto;
+    max-width: rem(1940px);
+    width: 100%;
     z-index: 6;
 
     @include m1() {
@@ -17,11 +20,12 @@
     }
 }
 
+
 .typing__wrapper {
     margin-inline: auto;
 
 
-    @include m1() {
+    @include m3() {
         width: 80%;
     }
 }
@@ -50,6 +54,7 @@
 .typing__text.typing__text--eng {
     text-indent: rem(40px);
     width: min(90%, 378px);
+    
 
     
     @include m1() {
@@ -59,14 +64,12 @@
     }
     @include m2() {
         text-indent: rem(120px);
-        width: rem(1104px);
-        margin-left: rem(-100px);
+        width: rem(1060px);
         @include fs110();
     }
     @include m3() {
         text-indent: rem(180px);
         width: 100%;
-        margin-left: 0;
     }
 }
 
@@ -84,16 +87,28 @@
 }
 
 .typing__video {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
     margin-top: rem(40px);
+    height: rem(490px);
     video {
         @include image();
     }
 
+    
+    @include m1() {
+        height: rem(600px);
+    }
+
     @include m2() {
         margin-top: rem(80px);
+        height: rem(600px);
+    }
+    
+    @include m3() {
+        height: rem(818px);
     }
 
 }
@@ -108,5 +123,24 @@
 
     img {
         @include image();
+    }
+}
+
+.typing__play-btn {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+
+    img {
+        @include image();
+    }
+
+    @include m1() {
+        width: 10%;
     }
 }

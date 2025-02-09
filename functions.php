@@ -183,12 +183,7 @@ function fetch_video_categories()
             $video_groups->the_post();
 
             $current_lang = get_current_language();
-            $field_name = '';
-            if ($current_lang == 'en') {
-                $field_name = 'category_name';
-            } else {
-                $field_name = 'category_name_ru';
-            };
+            $field_name = ($current_lang == 'en') ? 'category_name' : 'category_name_ru';
 
             $category_name = get_field($field_name);
             if ($category_name) {
@@ -200,6 +195,16 @@ function fetch_video_categories()
         }
         wp_reset_postdata();
     }
+
+
+    $custom_order = ($current_lang == 'en') ? ['Production', 'Brand ad', 'Product video', 'Music video', 'Brand video', 'Overview video', 'Summary video'] : ['Производство', 'Реклама бренда', 'Предметная съемка', 'Музыкальный клип', 'Имиджевый ролик', 'Обзорный ролик', 'Отчетный ролик'];
+
+    usort($video_categories, function ($a, $b) use ($custom_order) {
+        $pos_a = array_search($a['acf_name'], $custom_order);
+        $pos_b = array_search($b['acf_name'], $custom_order);
+        return $pos_a - $pos_b;
+    });
+
     return $video_categories;
 }
 

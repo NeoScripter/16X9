@@ -19,9 +19,10 @@
 
 .brands__wrapper {
     height: rem(300px);
-    overflow-y: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;  
+    height: 100vh;
 
     picture {
         @include image(contain);
@@ -29,14 +30,17 @@
 
     @include m1() {
         height: rem(400px);
+        height: 100vh;
     }
     @include m2() {
         height: rem(660px);
+        height: 100vh;
     }
     @include m3() {
         height: rem(620px);
         margin-inline: auto;
-        width: rem(1357px);
+       /*  width: rem(1357px); */
+        height: 100vh;
     }
 
     &::-webkit-scrollbar {
@@ -44,16 +48,22 @@
     }
 }
 
+.brands__wrapper.brands__wrapper--scrollable {
+    overflow-y: auto;
+}
+
+
 .brands__content {
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     text-align: center;
     text-transform: uppercase;
-    z-index: 5;
     width: 100%;
     left: 50%;
     top: 50%;
+    opacity: 0;
     transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease-in-out;
 
     @include fs80();
 
@@ -63,18 +73,45 @@
     }
 }
 
+/* .brands__wrapper:hover {
+    .brands__content {
+        opacity: 1;
+        z-index: 5;
+    }
+} */
+
+.brands__content.brands__content--visible {
+    opacity: 1;
+    z-index: 5;
+}
+
 .kassette {
+    position: relative;
+    z-index: 10;
     height: rem(490px);
+    margin-inline: auto;
+    max-width: rem(1940px);
+    width: 100%;
+    overflow: hidden;
 
     @include m1() {
         height: rem(600px);
     }
 
+    @include m2() {
+        height: rem(858px);
+    }
+
     @include m3() {
-        height: rem(1100px);
+        height: rem(858px);
     }
 
     video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        transform: translateZ(0); 
         @include image();
     }
 }

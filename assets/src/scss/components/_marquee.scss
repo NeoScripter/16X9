@@ -1,6 +1,9 @@
-.marquee {
+/* .marquee {
     overflow: hidden;
     user-select: none;
+    margin-inline: auto;
+    max-width: rem(1940px);
+    width: 100%;
 
     margin-bottom: rem(120px);
     height: rem(490px);
@@ -24,7 +27,7 @@
 
 .marquee__wrapper {
     display: grid;
-    position: relative;
+    transform: translateZ(0); 
     gap: 1.5em;
     transform: rotate(-18deg) translateY(-50%);
 }
@@ -41,4 +44,36 @@
     color: color("pink");
 
     @include fs200();
+}
+ */
+
+.marquee {
+    position: relative;
+    z-index: 10;
+    height: rem(490px);
+    margin-inline: auto;
+    max-width: rem(1940px);
+    width: 100%;
+    overflow: hidden;
+
+    @include m1() {
+        height: rem(600px);
+    }
+
+    @include m2() {
+        height: rem(600px);
+    }
+
+    @include m3() {
+        height: rem(818px);
+    }
+
+    video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        transform: translateZ(0); 
+        @include image();
+    }
 }

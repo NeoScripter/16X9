@@ -39,7 +39,8 @@ $current_lang = get_current_language();
             <div class="header__lang-switch">
                 <?php
                 foreach ($languages as $lang_code => $lang_name) {
-                    echo '<a href="?lang=' . $lang_code . '" class="header__btn ' . ($current_lang === $lang_code ? 'header__btn--active' : '') . '">' . $lang_name . '</a> ';
+                    $opposite_lang = $lang_code === 'en' ? 'ru' : 'en';
+                    echo '<a href="?lang=' . $opposite_lang . '" class="header__btn ' . ($current_lang !== $lang_code ? 'header__btn--active' : '') . '">' . $lang_name . '</a> ';
                 }
                 ;?>
             </div>

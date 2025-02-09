@@ -17,7 +17,7 @@
 
 .portfolio__categories {
     gap: 0.7em;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;  
@@ -55,22 +55,36 @@
     -ms-overflow-style: none;  
 
 
-    height: rem(380px);
+    height: rem(440px);
 
     @include m1() {
-        height: rem(380px);
+        height: rem(457.5px);
     }
 
     @include m2() {
-        height: rem(388px);
+        height: rem(492px);
     }
     
     @include m3() {
-        height: rem(604px);
+        height: rem(810px);
     }
 
     &::-webkit-scrollbar {
         display: none; 
+    }
+}
+
+.portfolio__arrow {
+    height: 1rem;
+    width: 3rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    img {
+        @include image(contain);
+    }
+
+    @include m2() {
+        display: none;
     }
 }
 
@@ -99,11 +113,22 @@
 
 .portfolio__item {
     gap: 8px;
+    overflow: hidden;
+    height: rem(288px);
     
-    @include flex();
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
 
     @include m1() {
         gap: 12px;
+        height: rem(297px);
+    }
+    @include m2() {
+        height: rem(320px);
+    }
+    @include m3() {
+        height: rem(532px);
     }
 }
 
@@ -145,19 +170,26 @@
     flex-basis: rem(1000px);
     justify-content: space-between;
     gap: 8px;
+    height: rem(144px);
 
     @include m1() {
         flex-basis: 100%;
         gap: 12px;
+        height: rem(148.5px);
     }
 
     @include m2() {
         justify-content: flex-start;
+        height: rem(160px);
+    }
+    @include m3() {
+        height: rem(266px);
     }
 
     .portfolio__video {
         flex-basis: 32.5%;
     }
+
 }
 
 .portfolio__video {
